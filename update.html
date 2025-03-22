@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Avaria</title>
+</head>
+<body>
+    <h1>Atualizar Status da Avaria</h1>
+    <form method="POST">
+        <label>Tipo: {{ avaria[1] }}</label><br>
+        <label>Descrição: {{ avaria[2] }}</label><br>
+        <label>Status Atual:</label>
+        <select name="status">
+            <option value="Pendente" {% if avaria[3] == 'Pendente' %}selected{% endif %}>Pendente</option>
+            <option value="Em andamento" {% if avaria[3] == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+            <option value="Resolvido" {% if avaria[3] == 'Resolvido' %}selected{% endif %}>Resolvido</option>
+        </select><br><br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

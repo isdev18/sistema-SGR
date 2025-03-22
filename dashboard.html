@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SGR</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; text-align: center; }
+        h2 { background: #007BFF; color: white; padding: 15px; margin: 0; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; background: white; box-shadow: 0px 0px 10px gray; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        th { background: #007BFF; color: white; }
+        select, button { padding: 8px; margin: 5px; }
+        .pendente { color: red; font-weight: bold; }
+        .andamento { color: orange; font-weight: bold; }
+        .resolvido { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Dashboard de Avarias</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Ação</th>
+        </tr>
+        {% for avaria in avarias %}
+        <tr>
+            <td>{{ avaria[0] }}</td>
+            <td>{{ avaria[1] }}</td>
+            <td>{{ avaria[2] }}</td>
+            <td class="{% if avaria[3] == 'Pendente' %}pendente{% elif avaria[3] == 'Em andamento' %}andamento{% else %}resolvido{% endif %}">
+                {{ avaria[3] }}
+            </td>
+            <td>
+                <form action="/update_avaria/{{ avaria[0] }}" method="POST">
+                    <select name="status">
+                        <option value="Pendente">Pendente</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Resolvido">Resolvido</option>
+                    </select>
+                    <button type="submit">Atualizar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

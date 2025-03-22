@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Risco e Segurança</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="body">
+  <!-- Título do SGR -->
+  <div class="titulo">
+    <h1>Bem-vindo(a) ao SGR</h1>
+  </div>
+  
+  <!-- Boas-vindas -->
+  <div class="Bem-vindo">
+    <h2>Sistema de Gestão de Risco e Segurança</h2>
+  </div>
+
+  <!-- Menu -->
+  <div class="menu-container">
+    <ul class="menu">
+      <li><a href="{{ url_for('home') }}">Início</a></li>
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+      <li><a href="{{ url_for('register') }}">Register</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="container-geral">
+    <div class="corpo_pagina">
+      <h1 class="titulo">Oque é o SGR?</h1>
+      <p class="Conteúdo">
+        <p>
+          O <strong>Sistema de Gestão de Risco e Segurança (SGR)</strong> é uma plataforma digital projetada para ajudar as empresas
+          a monitorar e gerenciar riscos relacionados à segurança, saúde e meio ambiente. Ele permite que os funcionários reportem
+          avarias, incidentes ou qualquer situação que possa representar um risco para a segurança do ambiente de trabalho ou para
+          o meio ambiente.
+      </p>
+      <p>
+          O objetivo principal do SGR é identificar, documentar e monitorar esses riscos de forma eficiente, promovendo ações
+          corretivas e preventivas para melhorar a segurança e o bem-estar dos colaboradores, além de garantir a conformidade com
+          as normas de segurança e regulamentações ambientais.
+      </p>
+      <p>
+          Em resumo, o SGR facilita a comunicação e a gestão proativa de riscos dentro das organizações.
+      </p>
+    </div>
+  </div>
+
+  <h1 class="titulo">Como funciona o SGR?</h1>
+  <div class="sgr-container">
+    <h1>📌 Passo a Passo do Sistema de Gestão de Risco e Segurança (SGR)</h1>
+
+    <h2>1️⃣ Funcionário Reporta uma Avaria</h2>
+    <p>O usuário acessa o <strong>sistema web</strong>, preenche um <strong>formulário</strong> com detalhes da avaria (tipo de risco, localização, descrição, imagens, etc.) e submete os dados.</p>
+
+    <h2>2️⃣ Processamento no Backend (Flask)</h2>
+    <p>O <strong>Flask</strong> recebe os dados e os armazena no <strong>banco de dados</strong>. O sistema pode enviar <strong>notificações</strong> e priorizar os riscos.</p>
+
+    <h2>3️⃣ Visualização e Gerenciamento</h2>
+    <p>Os gestores acessam um <strong>painel administrativo</strong> para visualizar os <strong>relatórios de avarias</strong>, filtrar registros e tomar decisões.</p>
+
+    <h2>4️⃣ Acompanhamento e Resolução</h2>
+    <p>Avarias são <strong>atribuídas</strong> a responsáveis para investigação e correção. O progresso pode ser <strong>acompanhado pelo sistema</strong>.</p>
+
+    <h2>5️⃣ Relatórios e Melhorias Contínuas</h2>
+    <p>O sistema gera <strong>estatísticas</strong> sobre riscos comuns, ajudando a <strong>reduzir incidentes</strong> na empresa.</p>
+</div>
+
+
+<h1 class="titulo">Quer aderir o SGR para sua empresa?</h1>
+<div class="aderir">
+  <p>
+    Se você está interessado em implementar o Sistema de Gestão de Risco e Segurança (SGR) em sua empresa, entre em contato conosco para mais informações.
+    Estamos aqui para ajudar a tornar seu ambiente de trabalho mais seguro e eficiente.
+    </p>
+</div>
+<!--Botão para deportar avarias-->
+
+  <!--Rodapé-->
+  <div class="rodape">
+    <p>© 2025 SGR. Todos os direitos reservados.</p>
+  </div>
+  
+  <!-- Scripts -->
+<script>
+
+
+</script>
+</body>
+</html>

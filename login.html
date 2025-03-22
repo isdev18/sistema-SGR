@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login SGR</title>
+    <style>
+        body {
+            background-color: darkcyan;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-title {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: darkcyan;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #006666;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-title">
+        <h1>LOGIN</h1>
+    </div>
+
+    <div class="container">
+        <input type="text" id="cnpj" placeholder="CNPJ">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <div class="forgot-password">
+        <a href="#">Esqueceu a Senha?</a>
+    </div>
+
+    <script>
+        function login() {
+            // Obtém os valores do CNPJ e da Senha
+            var cnpj = document.getElementById("cnpj").value.trim();
+            var senha = document.getElementById("senha").value.trim();
+
+            var cnpjCorreto = "admin"; // Defina aqui o CNPJ correto
+            var senhaCorreta = "12345"; // Substitua por uma senha segura
+
+            // Validação simples (verifica se os campos não estão vazios)
+            if (!cnpj || !senha) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            if (cnpj === cnpjCorreto && senha === senhaCorreta) {
+                alert("Login bem-sucedido! Redirecionando...");
+                window.location.href = "{{ url_for('dashboard') }}";
+                // Redireciona diretamente
+            } else {
+                alert("CNPJ ou Senha incorretos! Tente novamente.");
+            }
+        }
+    </script>
+
+</body>
+</html>
