@@ -44,11 +44,34 @@
                         <option value="Resolvido">Resolvido</option>
                     </select>
                     <button type="submit">Atualizar</button>
+                    <a href="{{ url_for('relatorio') }}">Relatório</a>
+                    <button class="delete-btn" data-id="{{ avaria.id }}">Excluir</button>
                 </form>
             </td>
         </tr>
         {% endfor %}
     </table>
+    <!---Script-->
+    <script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const avariaId = button.getAttribute('data-id');
+    
+            const response = await fetch(`/delete_avaria/${avariaId}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            });
+    
+            if (response.ok) {
+                window.location.reload(); // Recarrega a página se a exclusão for bem-sucedida
+            } else {
+                alert('Erro ao excluir a avaria');
+            }
+        });
+    });
+ </script>
+
+
 
 </body>
 </html>
